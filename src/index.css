@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Tokens lifted directly from SafeZone Wireframe.html so the built app matches it. */
+@theme {
+  --color-navy: #1b2230;
+  --color-navy-hover: #242c3d;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1d4ed8;
+  --color-blue-bg: #dbeafe;
+  --color-green: #16a34a;
+  --color-green-bg: #dcfce7;
+  --color-amber: #d97706;
+  --color-amber-bg: #fef3c7;
+  --color-red: #dc2626;
+  --color-red-bg: #fee2e2;
+  --color-grey-bg: #f1f5f9;
+  --color-grey-bg2: #e2e8f0;
+  --color-border: #e5e7eb;
+  --color-text: #111827;
+  --color-sub: #6b7280;
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+}
