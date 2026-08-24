@@ -26,7 +26,7 @@ export function SheFilesPage() {
     queryFn: () => listSheFilesByOrganization(user!.organizationId),
     enabled: !!user,
   });
-  const files = filesQuery.data ?? [];
+  const files = useMemo(() => filesQuery.data ?? [], [filesQuery.data]);
 
   const filtered = useMemo(
     () => (categoryFilter === "ALL" ? files : files.filter((f) => f.category === categoryFilter)),

@@ -22,7 +22,7 @@ export function ReportBuilderPage() {
     queryFn: () => listReportTypes(moduleCode!),
     enabled: !!moduleCode,
   });
-  const reportTypes = reportTypesQuery.data ?? [];
+  const reportTypes = useMemo(() => reportTypesQuery.data ?? [], [reportTypesQuery.data]);
 
   const existingReportQuery = useQuery({
     queryKey: ["report", existingId],
@@ -49,7 +49,7 @@ export function ReportBuilderPage() {
   }, [existingReportQuery.data]);
 
   const activeType = reportTypes.find((rt) => rt.code === typeCode);
-  const fields = activeType?.formSchema.fields ?? [];
+  const fields = useMemo(() => activeType?.formSchema.fields ?? [], [activeType]);
 
   const missingRequiredCount = useMemo(
     () =>

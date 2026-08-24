@@ -26,6 +26,10 @@ export default [
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      // TypeScript's own checker already understands ambient DOM/Node globals (React's JSX
+      // namespace, HTMLButtonElement, FormData, __dirname, ...) with full lib-awareness;
+      // the base no-undef rule doesn't, and flags every one of them as undefined.
+      "no-undef": "off",
     },
   },
 ];

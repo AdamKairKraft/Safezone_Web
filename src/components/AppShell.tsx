@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthStore } from "@/auth/authStore";
@@ -33,7 +33,7 @@ export function AppShell() {
     enabled: !!user,
   });
 
-  const sites = sitesQuery.data ?? [];
+  const sites = useMemo(() => sitesQuery.data ?? [], [sitesQuery.data]);
   useEffect(() => {
     if (!siteId && sites.length > 0) {
       setSiteId(sites[0].id);
