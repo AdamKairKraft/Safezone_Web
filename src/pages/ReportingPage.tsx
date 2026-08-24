@@ -37,7 +37,7 @@ export function ReportingPage() {
     enabled: !!user,
   });
 
-  const reports = reportsQuery.data ?? [];
+  const reports = useMemo(() => reportsQuery.data ?? [], [reportsQuery.data]);
   const usersById = new Map((usersQuery.data ?? []).map((u) => [u.id, u.fullName]));
 
   const moduleCode = reports[0]?.industryModuleCode ?? null;
